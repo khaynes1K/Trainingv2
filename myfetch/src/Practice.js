@@ -56,8 +56,96 @@ function Practice() {
 
 
     return (
-      <div>dlkfjsldkfjsd</div>
-    ) 
+            <div>
+            <div style={{ width: '100%' }}>
+          <Box
+            sx={{
+              display: 'grid',
+              bgcolor: (theme) =>
+                theme.palette.mode === 'dark' ? '#101010' : 'grey.100',
+              color: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
+              border: '1px solid',
+              borderColor: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+              p: 1,
+              borderRadius: 2,
+              fontSize: '0.875rem',
+              fontWeight: '700',
+            }}
+          >
+            {"I'm a grid container!"}
+          </Box>
+        </div>
+    
+    
+    
+    
+    
+        <div style={{ width: '100%' }}>
+          <Box
+            sx={{
+              display: 'grid',
+              gap: 1,
+              gridTemplateColumns: 'repeat(2, 1fr)',
+            }}
+          >
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+          </Box>
+        </div>
+
+        <div style={{ width: '100%' }}>
+      <Box
+        sx={{
+          display: 'grid',
+          bgcolor: (theme) =>
+            theme.palette.mode === 'dark' ? '#101010' : 'grey.100',
+          color: (theme) =>
+            theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
+          border: '1px solid',
+          borderColor: (theme) =>
+            theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+          p: 1,
+          borderRadius: 2,
+          fontSize: '0.875rem',
+          fontWeight: '700',
+        }}
+      >
+        {"I'm a grid container!"}
+      </Box>
+    </div>
+
+
+    <div>
+    <Box
+  sx={{
+    display: 'grid',
+    gridAutoFlow: 'row',
+    gridTemplateColumns: 'repeat(5, 1fr)',
+    gridTemplateRows: 'repeat(2, 50px)',
+    gap: 1,
+  }}
+>
+  <div sx={{ gridColumn: '1', gridRow: '1 / 3' }}>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div sx={{ gridColumn: '5', gridRow: '1 / 3' }}>5</div>
+</Box>
+    </div>
+
+
+
+
+
+
+
+
+        </div>
+        );
 }
 
 export default Practice;
