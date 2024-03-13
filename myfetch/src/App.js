@@ -6,9 +6,10 @@ import './App.css';
 
 
 
-const apiKey = '1b8e1b39d74b4fb4984174905240403';
+const apiKey = '4bc9287f18bc4171bae165602241203';
 const apiUrl = 'http://api.weatherapi.com/v1';
 
+/* 
 async function fetchWeatherData(city) {
   try {
     const response = await fetch(`${apiUrl}/current.json?key=${apiKey}&q=${city}&aqi=no`);
@@ -19,10 +20,24 @@ async function fetchWeatherData(city) {
     return null;
   }
 }
-/*
+*/
+
+
 async function fetchWeatherForecastData(city) {
   try {
-    const response = await fetch(`${apiUrl}/forecast.json?key=${apiKey}&q=${city}&aqi=no`);
+    const response = await fetch(`${apiUrl}/forecast.json?key=${apiKey}&q=${city}`);
+    console.log("response: ", response)
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching weather forcast data:', error);
+    return null;
+  }
+}
+
+/*
+async function fetchWeatherSearchData(city) {
+  try {
+    const response = await fetch(`${apiUrl}/search.json?key=${apiKey}&q=${city}`);
     console.log("response: ", response)
     return await response.json();
   } catch (error) {
@@ -36,48 +51,30 @@ function App() {
   const [data, setData] = useState(null);
   const [city, setCity] = useState("");
 
+
+  /*
   async function fetchData(city) {
     const weatherData = await fetchWeatherData(city);
     setData(weatherData);
   }
-  /*
+  */
+  
   async function fetchData(city) {
     const weatherData = await fetchWeatherForecastData(city);
     setData(weatherData);
   }
+
+  /*
+  async function fetchData(city) {
+    const weatherData = await fetchWeatherSearchData(city);
+    setData(weatherData);
   */
+  
 
   console.log(data);
 
   return (
     <div className="App">
-      <div>
-
-        {data && data.current && 
-            (
-              <>
-                <div> {data.location.name} </div>
-                <div>{data.location.region} </div>
-                <div> {data.location.country} </div>
-                <div> {data.location.localtime} </div>
-                <div> {data.current.temp_c} </div>
-                <div>{data.current.temp_f}</div>
-              </> 
-            )
-        }
-
-        {data && data.forecast && 
-          (
-            <>
-              <div> {data.forecast.forecastday.day.condition}</div>
-
-            </>
-          )
-        }
-          
-        
-      </div>
-      
       <div>
      <Box
       component="form"
@@ -100,6 +97,48 @@ function App() {
 
      </div>
       <Button variant="contained" onClick={() => {fetchData(city)}}>Submit </Button>
+      <div>
+
+        {data && data.current && 
+            (
+              <>
+                <div> {data.location.name} </div>
+                <div> {data.location.region} </div>
+                <div> {data.location.country} </div>
+                <div> {data.current.temp_c} </div>
+                <div> {data.current.temp_f} </div>
+               
+              </> 
+            )
+        }
+
+        {data && data.forecast && 
+          (
+            <>
+            <div>Forecast:</div>
+              <div> {data.forecast.forecastday[0].day.maxtemp_c}</div>
+              <div> {data.forecast.forecastday[0].day.maxtemp_f}</div>
+              <div> {data.forecast.forecastday[0].day.mintemp_c}</div>
+              <div> {data.forecast.forecastday[0].day.mintemp_f}</div>
+
+            </>
+          )
+        }
+
+        {data && data.search &&
+        (
+          <> 
+          <div> Search id</div>
+            <div>{data.id}</div>
+          
+          </>
+
+        )
+      }
+          
+        
+      </div>
+
     </div>
   );
 }

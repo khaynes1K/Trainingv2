@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 import './index.css';
 import App from './App';
 import Practice from './Practice';
+import LayoutPractice from './LayoutPractice';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route exact path="/" element={<App />} />
         <Route exact path="/practice" element={<Practice />}/>
+        <Route exact path = "/layoutPractice" element={<LayoutPractice/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
