@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -20,7 +20,7 @@ async function fetchWeatherData(city) {
     return null;
   }
 }
-*/
+
 
 
 async function fetchWeatherForecastData(city) {
@@ -33,19 +33,19 @@ async function fetchWeatherForecastData(city) {
     return null;
   }
 }
+*/
 
-/*
 async function fetchWeatherSearchData(city) {
   try {
     const response = await fetch(`${apiUrl}/search.json?key=${apiKey}&q=${city}`);
     console.log("response: ", response)
     return await response.json();
   } catch (error) {
-    console.error('Error fetching weather forcast data:', error);
+    console.error('Error fetching weather search data:', error);
     return null;
   }
 }
-*/
+
 
 function App() {
   const [data, setData] = useState(null);
@@ -57,18 +57,19 @@ function App() {
     const weatherData = await fetchWeatherData(city);
     setData(weatherData);
   }
-  */
+  
   
   async function fetchData(city) {
     const weatherData = await fetchWeatherForecastData(city);
     setData(weatherData);
   }
-
-  /*
+  */
+  
   async function fetchData(city) {
     const weatherData = await fetchWeatherSearchData(city);
     setData(weatherData);
-  */
+  }
+
   
 
   console.log(data);
@@ -125,11 +126,16 @@ function App() {
           )
         }
 
-        {data && data.search &&
+        {data&&
         (
           <> 
-          <div> Search id</div>
-            <div>{data.id}</div>
+            <div>{data[0].name}</div>
+            <div>{data[0].region}</div>
+            <div>{data[0].country}</div>
+            <span>Search ID </span>
+            <div>{data[0].id}</div>
+            <div>{data[0].lat}</div>
+            <div>{data[0].lon}</div>
           
           </>
 

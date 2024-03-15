@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
+import React from 'react';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
-import TextField from '@mui/material/TextField';
 
 
 function Practice() {
-    const [data, setData] = useState(null) ;
-    const [city, setCity] = useState("");
 
     const commonStyles = {
       bgcolor: 'background.paper',
