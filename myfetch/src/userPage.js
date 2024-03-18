@@ -1,9 +1,14 @@
-function userPage(){
+import React from 'react';
+function UserPage(){
     return (
-        <header>
-        <div>userPage</div>
-        <div> This will contain users info such as number, voice app, and name.</div>
-        </header>
+
+        <div class="wrapper">
+                    <header class="header">Header</header>
+                        <article class="main">
+                            <p>input a calendar</p>  
+                        </article>
+                            <aside class="aside aside-1">User and appointment info </aside>
+         </div>
     );
 }
-export default userPage;
+export default UserPage;

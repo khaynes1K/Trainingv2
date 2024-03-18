@@ -1,9 +1,8 @@
-function dropDownPage(){
+import React from 'react';
+function DropDownPage(){
     return (
-        <header>
-        <div> dropDownPage</div>
-        <div> This page will be the home page that will contain a drop down to create new users.</div>
-        </header>
+        <div> dropDownPage
+        This page will be the home page that will contain a drop down to create new users.</div>
     );
 }
-export default dropDownPage;
+export default DropDownPage;

@@ -1,9 +1,15 @@
-function appointmentPage(){
+import React from 'react';
+function AppointmentPage(){
     return (
-        <header>
-        <div>appointmentPage</div>
-        <div>This will contain calender with a appointment for users.</div>
-        </header>
+        
+        <div class="wrapper">
+                    <header class="header">Header</header>
+                        <article class="main">
+                            <p>input a calendar</p>  
+                        </article>
+                            <aside class="aside aside-1">User and appointment info </aside>
+                </div>
+        
     );
 }
-export default appointmentPage;
+export default AppointmentPage;
