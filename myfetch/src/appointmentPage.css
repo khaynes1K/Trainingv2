@@ -1,0 +1,42 @@
+/* CSS for appointment page*/
+.wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center; 
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+  }
+  
+  .header {
+    background-color: lightblue;
+    display: flex;
+    margin-right: 0;
+    width: 100%;
+  
+  }
+  
+  .main {
+    text-align: left;
+    align-items: stretch;
+    background: white;
+    flex: 2 1 auto;
+    height: 500px;
+  }
+.aside-1 {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+    background: rgb(27, 27, 141);
+    height: 94vh;
+}
+
+.signoutButton {
+    margin-top: auto; 
+}
+.personIcon {
+    margin-bottom: auto;
+}
